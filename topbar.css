@@ -1,5 +1,6 @@
 .topbar {
-    background: #2c3e50;
+    background: rgba(0, 128, 0, 0.795);
+    font-family: 'Poppins', sans-serif;
     color: white;
     display: flex;
     align-items: center;
@@ -9,9 +10,24 @@
     top: 0;
     z-index: 1000;
 }
+.topbar-left {
+    display: flex;
+    font-family: Georgia, serif;
+    align-items: center; /* vertically centers image and text */
+}
+
+.topbar-left .logo {
+    height: 30px; /* adjust to fit your topbar */
+    margin-right: 8px; /* space between logo and text */
+}
+.logo {
+    height: 30px;
+    margin-right: 8px;
+    filter: brightness(0) invert(1); /* turns it white */
+}
 
 .site-name {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
 }
 
@@ -23,18 +39,27 @@
     padding: 0;
 }
 
+.topbar-nav ul li {
+    margin: 0 10px; /* space left & right between menu items */
+}
+
 .topbar-nav ul li a {
-    color: #bdc3c7;
+    color: #d8e0e6;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 100;
+    display: inline-block;
+    padding: 6px 12px;          /* padding is fixed */
+    border-radius: 4px;         /* optional, keeps box shape */
+    transition: all 0.3s ease;  /* smooth hover effect */
 }
 
 .topbar-nav ul li a:hover,
 .topbar-nav ul li a.active {
     color: white;
-    border-bottom: 2px solid white;
-    padding-bottom: 2px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: white; /* now border appears without moving text */
 }
+
 
 .topbar-profile {
     display: flex;

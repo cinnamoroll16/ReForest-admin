@@ -1,0 +1,288 @@
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f5f7fa;
+    color: #333;
+    padding: 10px;
+}
+/* Topbar */
+.topbar {
+    background: rgba(0, 128, 0, 0.795);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.topbar-left {
+    display: flex;
+    align-items: center;
+    font-family: Georgia, serif;
+}
+
+.topbar-left .logo {
+    height: 30px;
+    margin-right: 8px;
+    filter: brightness(0) invert(1);
+}
+
+.site-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.topbar-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.topbar-nav ul li a {
+    color: #d8e0e6;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.topbar-nav ul li a:hover,
+.topbar-nav ul li a.active {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.topbar-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.topbar-profile .avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+.username {
+    font-weight: bold;
+    font-size: 14px;
+}
+/* Recommendation Page Specific Styles */
+.recommendation-grid {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.recommendation-grid .grid-header {
+    display: grid;
+    grid-template-columns: 80px 100px 100px 1fr 120px 150px 100px;
+    background-color: #2e7d32;
+    color: white;
+    padding: 12px 15px;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.recommendation-row {
+    display: grid;
+    grid-template-columns: 80px 100px 100px 1fr 120px 150px 100px;
+    padding: 12px 15px;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 14px;
+    align-items: center;
+}
+
+.recommendation-row:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.recommendation-row:hover {
+    background-color: #f0f7f1;
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.filter-group label {
+    font-size: 14px;
+    color: #555;
+}
+
+.filter-group select, 
+.filter-group input {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    min-width: 150px;
+}
+
+#generateBtn {
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+}
+
+#generateBtn:hover {
+    background-color: #1b5e20;
+}
+
+.species-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.species-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.species-name {
+    font-weight: 500;
+}
+
+.species-id {
+    font-size: 12px;
+    color: #666;
+}
+
+.confidence-badge {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.high-confidence {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.medium-confidence {
+    background-color: #fff8e1;
+    color: #ff8f00;
+}
+
+.low-confidence {
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+.action-btn {
+    background: none;
+    border: 1px solid #2e7d32;
+    color: #2e7d32;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.2s;
+}
+
+.action-btn:hover {
+    background-color: #2e7d32;
+    color: white;
+}
+
+.stats-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.stat-value {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #2e7d32;
+}
+
+.stat-label {
+    font-size: 13px;
+    color: #666;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .recommendation-grid .grid-header,
+    .recommendation-row {
+        grid-template-columns: 70px 90px 90px 1fr 100px 120px 90px;
+    }
+}
+
+@media (max-width: 768px) {
+    .controls {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    #generateBtn {
+        margin-left: 0;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .recommendation-grid .grid-header,
+    .recommendation-row {
+        grid-template-columns: 70px 1fr 1fr;
+    }
+    
+    .recommendation-grid .grid-header div:nth-child(4),
+    .recommendation-grid .grid-header div:nth-child(5),
+    .recommendation-grid .grid-header div:nth-child(6),
+    .recommendation-row div:nth-child(4),
+    .recommendation-row div:nth-child(5),
+    .recommendation-row div:nth-child(6) {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-summary {
+        grid-template-columns: 1fr 1fr;
+    }
+}

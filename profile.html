@@ -4,81 +4,108 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Profile Page</title>
-
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <!-- Profile page styling -->
     <link rel="stylesheet" href="profile.css">
 </head>
+<header class="topbar">
+    <div class="topbar-left"> 
+        <img src="icon.png" alt="ReForest Logo" class="logo">
+        <span class="site-name">ReForest</span>
+    </div>
+     
+    <nav class="topbar-nav">
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="sensor.html">View Sensor</a></li>
+            <li><a href="recommendation.html">Recommendation Logs</a></li>
+            <li><a href="task.html">Task</a></li>
+            <li><a href="profile.html">My Profile</a></li>
+        </ul>
+    </nav>
+    <div class="topbar-profile">
+        <img src="avatar.jpg" alt="Admin Avatar" class="avatar">
+        <span class="username">Admin Name</span>
+    </div>
+</header>
 <body>
-
-    <!-- Topbar -->
-    <iframe src="topbar.html" style="width: 100%; height: 60px; border: none;"></iframe>
-
-    <!-- Main Content -->
-    <main class="content">
-        <h1>My Profile</h1>
-        <p class="description">
-            View and update your profile settings. Administrators can also manage groups and permissions for users.
-        </p>
-
-        <form class="profile-form">
-            <!-- Avatar -->
-            <div class="form-group">
-                <label>Avatar</label>
-                <div class="avatar-upload">
-                    <img src="avatar.jpg" alt="Profile Avatar" class="avatar-preview">
-                    <input type="file" accept="image/*">
+    <div class="profile-container">
+        <!-- Profile Header -->
+        <div class="profile-header">
+            <div class="avatar-wrapper">
+                <label for="avatarUpload">
+                    <img src="avatar.jpg" alt="Avatar" class="avatar" id="avatarPreview">
+                </label>
+                <input type="file" id="avatarUpload" class="avatar-input" accept="image/*">
+            </div>
+            
+            <div class="user-info">
+                <h2>John Doe</h2>
+                <p>ryan@rockettheme.com - <a href="#">Administrator</a></p>
+            </div>
+        </div>
+        <!-- Account Section -->
+        <div class="account-header">Account</div>
+        
+        <ul class="profile-details">
+            <li>
+                <label>Username</label>
+                <input type="text" value="ryan" readonly>
+            </li>
+            
+            <li>
+                <label>Email</label>
+                <input type="email" value="ryan@example.com">
+            </li>
+            
+           <li class="password-field">
+                <label>Password</label>
+                <div class="password-wrapper">
+                    <input type="password" value="••••••••" id="passwordField">
+                    <button type="button" onclick="togglePassword()" class="toggle-btn">👁️</button>
                 </div>
-            </div>
-
-            <!-- Name -->
-            <div class="form-group">
-                <label>Name</label>
+            </li>
+            
+            <li>
+                <label>Full name</label>
                 <input type="text" value="John Doe">
-            </div>
-
-            <!-- Email -->
-            <div class="form-group">
-                <label>Email Address</label>
-                <input type="email" value="admin@example.com">
-            </div>
-
-            <!-- Language -->
-            <div class="form-group">
+            </li>
+            
+            <li>
+                <label>Title</label>
+                <input type="text" value="Administrator">
+            </li>
+            
+            <li>
                 <label>Language</label>
                 <select>
-                    <option>English</option>
+                    <option selected>English</option>
                     <option>Spanish</option>
                     <option>French</option>
                 </select>
-            </div>
-
-            <!-- Groups -->
-            <div class="form-group">
-                <label>Groups</label>
-                <select multiple>
-                    <option>Administrators</option>
-                    <option>Editors</option>
-                    <option>Viewers</option>
-                </select>
-            </div>
-
-            <!-- Permission -->
-            <div class="form-group">
-                <label>Permission Level</label>
-                <select>
-                    <option>Full Access</option>
-                    <option>Limited Access</option>
-                    <option>Read Only</option>
-                </select>
-            </div>
-
-            <!-- Buttons -->
-            <div class="form-actions">
-                <button type="submit" class="btn-primary">Save Changes</button>
-                <button type="reset" class="btn-secondary">Cancel</button>
-            </div>
-        </form>
-    </main>
-
+            </li>
+        </ul>
+        
+        <div class="form-actions">
+            <button type="submit" class="btn-primary">Save Changes</button>
+        </div>
+    </div>
 </body>
+<script>
+    // Image preview on file select
+    document.getElementById('avatarUpload').addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('avatarPreview').src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+    function togglePassword() {
+        const pwd = document.getElementById("passwordField");
+        pwd.type = pwd.type === "password" ? "text" : "password";
+    }
+</script>
 </html>

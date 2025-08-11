@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReForest - Sensor Data Monitoring</title>
+    <link rel="stylesheet" href="sensor.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<header class="topbar">
+    <div class="topbar-left"> 
+        <img src="icon.png" alt="ReForest Logo" class="logo">
+        <span class="site-name">ReForest</span>
+    </div>
+     
+    <nav class="topbar-nav">
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="sensor.html">View Sensor</a></li>
+            <li><a href="recommendation.html">Recommendation Logs</a></li>
+            <li><a href="task.html">Task</a></li>
+            <li><a href="profile.html">My Profile</a></li>
+        </ul>
+    </nav>
+    <div class="topbar-profile">
+        <img src="avatar.jpg" alt="Admin Avatar" class="avatar">
+        <span class="username">Admin Name</span>
+    </div>
+</header>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <h1><i class="fas fa-seedling"></i> ReForest Sensor Data</h1>
+            <p class="subtitle">Real-time environmental metrics feeding into analysis processes</p>
+        </header>
+
+        <div class="sensor-controls">
+            <div class="refresh-control">
+                <button id="refreshBtn"><i class="fas fa-sync-alt"></i> Refresh Data</button>
+                <span class="last-updated">Last updated: <span id="updateTime">Just now</span></span>
+            </div>
+            <div class="filter-control">
+                <input type="text" id="sensorFilter" placeholder="Filter by Sensor ID...">
+            </div>
+        </div>
+
+        <div class="sensor-grid">
+            <!-- Header Row -->
+            <div class="grid-header">
+                <div>Data ID</div>
+                <div>Sensor ID</div>
+                <div>Soil Moisture</div>
+                <div>Temperature</div>
+                <div>pH Level</div>
+                <div>Timestamp</div>
+            </div>
+            
+            <!-- Data Rows will be inserted here by JavaScript -->
+            <div id="sensorDataContainer"></div>
+        </div>
+
+        <div class="metrics-summary">
+            <div class="metric-card">
+                <div class="metric-value" id="avgMoisture">--%</div>
+                <div class="metric-label">Avg Soil Moisture</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value" id="avgTemp">--°C</div>
+                <div class="metric-label">Avg Temperature</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value" id="avgPH">--</div>
+                <div class="metric-label">Avg pH Level</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value" id="activeSensors">--</div>
+                <div class="metric-label">Active Sensors</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="sensor.js"></script>
+</body>
+</html>

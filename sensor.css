@@ -1,0 +1,263 @@
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f5f7fa;
+    color: #333;
+    padding: 10px;
+}
+
+/* Topbar */
+.topbar {
+    background: rgba(0, 128, 0, 0.795);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.topbar-left {
+    display: flex;
+    align-items: center;
+    font-family: Georgia, serif;
+}
+
+.topbar-left .logo {
+    height: 30px;
+    margin-right: 8px;
+    filter: brightness(0) invert(1);
+}
+
+.site-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.topbar-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.topbar-nav ul li a {
+    color: #d8e0e6;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.topbar-nav ul li a:hover,
+.topbar-nav ul li a.active {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.topbar-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.topbar-profile .avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+.username {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.dashboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.dashboard-header {
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.dashboard-header h1 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #2e7d32;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dashboard-header .subtitle {
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* Sensor Controls */
+.sensor-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.refresh-control {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#refreshBtn {
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#refreshBtn:hover {
+    background-color: #1b5e20;
+}
+
+.last-updated {
+    font-size: 13px;
+    color: #666;
+}
+
+.filter-control input {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    min-width: 250px;
+}
+
+/* Sensor Grid */
+.sensor-grid {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.grid-header {
+    display: grid;
+    grid-template-columns: 80px 100px 1fr 1fr 1fr 1fr;
+    background-color: #2e7d32;
+    color: white;
+    padding: 12px 15px;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.sensor-data-row {
+    display: grid;
+    grid-template-columns: 80px 100px 1fr 1fr 1fr 1fr;
+    padding: 12px 15px;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 14px;
+    align-items: center;
+}
+
+.sensor-data-row:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.sensor-data-row:hover {
+    background-color: #f0f7f1;
+}
+
+/* Value Indicators */
+.data-value {
+    font-weight: 500;
+}
+
+.moisture-value {
+    color: #1976d2;
+}
+
+.temp-value {
+    color: #d32f2f;
+}
+
+.ph-value {
+    color: #7b1fa2;
+}
+
+/* Metrics Summary */
+.metrics-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.metric-card {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.metric-value {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #2e7d32;
+}
+
+.metric-label {
+    font-size: 13px;
+    color: #666;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .grid-header, .sensor-data-row {
+        grid-template-columns: 60px 80px 1fr 1fr 1fr;
+    }
+    
+    .grid-header div:nth-child(6),
+    .sensor-data-row div:nth-child(6) {
+        display: none;
+    }
+    
+    .metrics-summary {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .sensor-controls {
+        flex-direction: column;
+    }
+    
+    .filter-control input {
+        min-width: 100%;
+    }
+    
+    .metrics-summary {
+        grid-template-columns: 1fr;
+    }
+}

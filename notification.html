@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReForest - Notification Center</title>
+    <link rel="stylesheet" href="notification.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <h1><i class="fas fa-bell"></i> Notification Center</h1>
+            <p class="subtitle">Manage all system alerts and communications</p>
+        </header>
+
+        <div class="notification-controls">
+            <div class="filter-group">
+                <label for="typeFilter">Filter by:</label>
+                <select id="typeFilter">
+                    <option value="all">All Notifications</option>
+                    <option value="alert">Alerts</option>
+                    <option value="reminder">Reminders</option>
+                    <option value="system">System Updates</option>
+                    <option value="task">Task Updates</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="dateFilter">Time Range:</label>
+                <select id="dateFilter">
+                    <option value="all">All Time</option>
+                    <option value="today">Today</option>
+                    <option value="week">This Week</option>
+                    <option value="month">This Month</option>
+                </select>
+            </div>
+            <div class="notification-actions">
+                <button id="markAllReadBtn"><i class="fas fa-check-double"></i> Mark All as Read</button>
+                <button id="clearAllBtn"><i class="fas fa-trash"></i> Clear All</button>
+            </div>
+        </div>
+
+        <div class="notification-list">
+            <!-- Notification items will be inserted here by JavaScript -->
+            <div id="notificationContainer"></div>
+        </div>
+
+        <div class="notification-stats">
+            <div class="stat-card">
+                <div class="stat-value" id="totalNotifs">--</div>
+                <div class="stat-label">Total Notifications</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="unreadNotifs">--</div>
+                <div class="stat-label">Unread</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="alertsCount">--</div>
+                <div class="stat-label">Alerts</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="remindersCount">--</div>
+                <div class="stat-label">Reminders</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="notification.js"></script>
+</body>
+</html>

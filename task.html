@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReForest - Planting Task Management</title>
+    <link rel="stylesheet" href="task.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<header class="topbar">
+    <div class="topbar-left"> 
+        <img src="icon.png" alt="ReForest Logo" class="logo">
+        <span class="site-name">ReForest</span>
+    </div>
+     
+    <nav class="topbar-nav">
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="sensor.html">View Sensor</a></li>
+            <li><a href="recommendation.html">Recommendation Logs</a></li>
+            <li><a href="task.html">Task</a></li>
+            <li><a href="profile.html">My Profile</a></li>
+        </ul>
+    </nav>
+    <div class="topbar-profile">
+        <img src="avatar.jpg" alt="Admin Avatar" class="avatar">
+        <span class="username">Admin Name</span>
+    </div>
+</header>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <h1><i class="fas fa-tasks"></i> Planting Task Management</h1>
+            <p class="subtitle">Schedule and track fieldwork deployment</p>
+        </header>
+
+        <div class="task-controls">
+            <div class="filter-group">
+                <label for="statusFilter">Status:</label>
+                <select id="statusFilter">
+                    <option value="all">All Tasks</option>
+                    <option value="pending">Pending</option>
+                    <option value="in-progress">In Progress</option>
+                    <option value="completed">Completed</option>
+                    <option value="overdue">Overdue</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="dateFilter">Date Range:</label>
+                <input type="date" id="startDate">
+                <span>to</span>
+                <input type="date" id="endDate">
+            </div>
+            <button id="addTaskBtn"><i class="fas fa-plus"></i> Add New Task</button>
+        </div>
+
+        <div class="task-grid">
+            <!-- Header Row -->
+            <div class="grid-header">
+                <div>Task ID</div>
+                <div>Assigned To</div>
+                <div>Location</div>
+                <div>Status</div>
+                <div>Date</div>
+                <div>Actions</div>
+            </div>
+            
+            <!-- Task Rows will be inserted here by JavaScript -->
+            <div id="taskContainer"></div>
+        </div>
+
+        <div class="task-stats">
+            <div class="stat-card">
+                <div class="stat-value" id="totalTasks">--</div>
+                <div class="stat-label">Total Tasks</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="pendingTasks">--</div>
+                <div class="stat-label">Pending</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="progressTasks">--</div>
+                <div class="stat-label">In Progress</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="completedTasks">--</div>
+                <div class="stat-label">Completed</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Task Modal (hidden by default) -->
+    <div id="taskModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 id="modalTitle">Add New Planting Task</h2>
+            <form id="taskForm">
+                <input type="hidden" id="taskId">
+                <div class="form-group">
+                    <label for="assignedTo">Assigned To:</label>
+                    <select id="assignedTo" required>
+                        <option value="">Select team member</option>
+                        <option value="John Doe">John Doe</option>
+                        <option value="Jane Smith">Jane Smith</option>
+                        <option value="Robert Chen">Robert Chen</option>
+                        <option value="Maria Garcia">Maria Garcia</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="taskLocation">Location:</label>
+                    <input type="text" id="taskLocation" required placeholder="GPS coordinates or area name">
+                </div>
+                <div class="form-group">
+                    <label for="taskStatus">Status:</label>
+                    <select id="taskStatus" required>
+                        <option value="pending">Pending</option>
+                        <option value="in-progress">In Progress</option>
+                        <option value="completed">Completed</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="taskDate">Date:</label>
+                    <input type="date" id="taskDate" required>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Save Task</button>
+                    <button type="button" class="btn-secondary" id="cancelBtn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="task.js"></script>
+</body>
+</html>

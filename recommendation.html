@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReForest - Planting Recommendations</title>
+    <link rel="stylesheet" href="recommendation.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<header class="topbar">
+    <div class="topbar-left"> 
+        <img src="icon.png" alt="ReForest Logo" class="logo">
+        <span class="site-name">ReForest</span>
+    </div>
+     
+    <nav class="topbar-nav">
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="sensor.html">View Sensor</a></li>
+            <li><a href="recommendation.html">Recommendation Logs</a></li>
+            <li><a href="task.html">Task</a></li>
+            <li><a href="profile.html">My Profile</a></li>
+        </ul>
+    </nav>
+    <div class="topbar-profile">
+        <img src="avatar.jpg" alt="Admin Avatar" class="avatar">
+        <span class="username">Admin Name</span>
+    </div>
+</header>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <h1><i class="fas fa-tree"></i> ReForest Planting Recommendations</h1>
+            <p class="subtitle">Intelligent species matching based on environmental conditions</p>
+        </header>
+
+        <div class="controls">
+            <div class="filter-group">
+                <label for="confidenceFilter">Confidence Level:</label>
+                <select id="confidenceFilter">
+                    <option value="all">All</option>
+                    <option value="high">High (≥80%)</option>
+                    <option value="medium">Medium (50-79%)</option>
+                    <option value="low">Low (&lt;50%)</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="sensorFilter">Sensor ID:</label>
+                <input type="text" id="sensorFilter" placeholder="Filter by Sensor ID...">
+            </div>
+            <button id="generateBtn"><i class="fas fa-cogs"></i> Generate New Recommendations</button>
+        </div>
+
+        <div class="recommendation-grid">
+            <!-- Header Row -->
+            <div class="grid-header">
+                <div>Reco ID</div>
+                <div>Sensor Data</div>
+                <div>Inventory</div>
+                <div>Top Species</div>
+                <div>Confidence</div>
+                <div>Generated</div>
+                <div>Actions</div>
+            </div>
+            
+            <!-- Data Rows will be inserted here by JavaScript -->
+            <div id="recommendationContainer"></div>
+        </div>
+
+        <div class="stats-summary">
+            <div class="stat-card">
+                <div class="stat-value" id="totalRecos">--</div>
+                <div class="stat-label">Total Recommendations</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="highConfidence">--</div>
+                <div class="stat-label">High Confidence</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="avgConfidence">--%</div>
+                <div class="stat-label">Avg Confidence</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="readyInventory">--</div>
+                <div class="stat-label">Ready Inventory</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="recommendation.js"></script>
+</body>
+</html>
