@@ -47,6 +47,26 @@ const sensorDataContainer = document.getElementById('sensorDataContainer');
 const refreshBtn = document.getElementById('refreshBtn');
 const sensorFilter = document.getElementById('sensorFilter');
 const updateTime = document.getElementById('updateTime');
+// Add this to your existing event listeners
+    const logoutBtn = document.getElementById('logoutBtn');
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', handleLogout);
+    }
+
+    // Add this function to your existing functions
+    function handleLogout(e) {
+        e.preventDefault();
+        // Here you would typically:
+        // 1. Clear session/token
+        // 2. Redirect to login page
+        console.log('Logging out...');
+        alert('You have been logged out successfully!');
+        window.location.href = 'signin.html'; // Uncomment to redirect
+    }
+    // Add click events to all action cards
+    actionCards.forEach(card => {
+        card.addEventListener('click', handleActionCardClick);
+    });
 
 // Display sensor data
 function displaySensorData(data) {

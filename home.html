@@ -12,19 +12,26 @@
         <img src="icon.png" alt="ReForest Logo" class="logo">
         <span class="site-name">ReForest</span>
     </div>
-     
+        
     <nav class="topbar-nav">
         <ul>
-            <li><a href="home.html">Home</a></li>
+            <li><a href="home.html" class="active">Home</a></li>
             <li><a href="sensor.html">View Sensor</a></li>
             <li><a href="recommendation.html">Recommendation Logs</a></li>
             <li><a href="task.html">Task</a></li>
+            <li><a href="notification.html">Notification</a></li>
             <li><a href="profile.html">My Profile</a></li>
         </ul>
     </nav>
     <div class="topbar-profile">
         <img src="avatar.jpg" alt="Admin Avatar" class="avatar">
         <span class="username">Admin Name</span>
+        <div class="profile-dropdown">
+            <ul>
+                <li><a href="profile.html"><i class="fas fa-user"></i> My Profile</a></li>
+                <li><a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </div>
     </div>
 </header>
 <body>
@@ -34,29 +41,27 @@
         </header>
 
         <div class="home-grid">
-            <!-- Sensor Data Card -->
-            <div class="home-card">
+            <div class="home-card" onclick="window.location.href='sensor.html';">
                 <div class="card-icon">📊</div>
                 <h3>View Sensor Data</h3>
                 <p>Monitor real-time sensor data for environmental metrics.</p>
             </div>
 
-            <!-- Pending Activities Card -->
-            <div class="home-card">
+            <div class="home-card" onclick="window.location.href='notification.html';">
                 <div class="card-icon">⏳</div>
                 <h3>Pending Activities</h3>
                 <p>Track and complete your pending nursery tasks.</p>
             </div>
 
             <!-- Recommendation Card -->
-            <div class="home-card">
+            <div class="home-card" onclick="window.location.href='recommendation.html';">
                 <div class="card-icon">🌱</div>
                 <h3>Recommendation Log</h3>
                 <p>Get suggestions on species best suited for your nursery.</p>
             </div>
 
             <!-- Planting Task Card -->
-            <div class="home-card">
+            <div class="home-card" onclick="window.location.href='task.html';">
                 <div class="card-icon">✏️</div>
                 <h3>Planting Task</h3>
                 <p>Delegate daily activities and follow up on progress.</p>
@@ -64,4 +69,27 @@
         </div>
     </div>
 </body>
+<script>
+    // Add this to your existing event listeners
+    const logoutBtn = document.getElementById('logoutBtn');
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', handleLogout);
+    }
+
+    // Add this function to your existing functions
+    function handleLogout(e) {
+        e.preventDefault();
+        // Here you would typically:
+        // 1. Clear session/token
+        // 2. Redirect to login page
+        console.log('Logging out...');
+        alert('You have been logged out successfully!');
+        window.location.href = 'signin.html'; // Uncomment to redirect
+    }
+    // Add click events to all action cards
+    actionCards.forEach(card => {
+        card.addEventListener('click', handleActionCardClick);
+    });
+
+</script>
 </html>

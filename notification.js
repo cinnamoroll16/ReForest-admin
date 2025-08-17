@@ -94,7 +94,27 @@ function displayNotifications(data) {
                 icon = 'fas fa-info-circle';
                 typeClass = '';
         }
-        
+        // Add this to your existing event listeners
+        const logoutBtn = document.getElementById('logoutBtn');
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', handleLogout);
+        }
+
+        // Add this function to your existing functions
+        function handleLogout(e) {
+            e.preventDefault();
+            // Here you would typically:
+            // 1. Clear session/token
+            // 2. Redirect to login page
+            console.log('Logging out...');
+            alert('You have been logged out successfully!');
+            window.location.href = 'signin.html'; // Uncomment to redirect
+        }
+        // Add click events to all action cards
+        actionCards.forEach(card => {
+            card.addEventListener('click', handleActionCardClick);
+        });
+
         // Format timestamp
         const timestamp = new Date(notif.notif_timestamp);
         const formattedTime = timestamp.toLocaleString();

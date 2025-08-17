@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Profile Page</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <!-- Profile page styling -->
+    <title>My Profile | ReForest</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="profile.css">
 </head>
 <header class="topbar">
@@ -13,99 +13,151 @@
         <img src="icon.png" alt="ReForest Logo" class="logo">
         <span class="site-name">ReForest</span>
     </div>
-     
+        
     <nav class="topbar-nav">
         <ul>
             <li><a href="home.html">Home</a></li>
             <li><a href="sensor.html">View Sensor</a></li>
             <li><a href="recommendation.html">Recommendation Logs</a></li>
             <li><a href="task.html">Task</a></li>
-            <li><a href="profile.html">My Profile</a></li>
+            <li><a href="notification.html">Notification</a></li>
+            <li><a href="profile.html" class="active">My Profile</a></li>
         </ul>
     </nav>
     <div class="topbar-profile">
         <img src="avatar.jpg" alt="Admin Avatar" class="avatar">
         <span class="username">Admin Name</span>
+        <div class="profile-dropdown">
+            <ul>
+                <li><a href="profile.html"><i class="fas fa-user"></i> My Profile</a></li>
+                <li><a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </div>
     </div>
 </header>
 <body>
-    <div class="profile-container">
-        <!-- Profile Header -->
-        <div class="profile-header">
-            <div class="avatar-wrapper">
-                <label for="avatarUpload">
-                    <img src="avatar.jpg" alt="Avatar" class="avatar" id="avatarPreview">
-                </label>
-                <input type="file" id="avatarUpload" class="avatar-input" accept="image/*">
+    <!-- Main Content -->
+    <main class="dashboard-container">
+        <div class="profile-container">
+            <!-- Profile Header -->
+            <div class="profile-header">
+                <div class="profile-identity">
+                    <img src="avatar.jpg" alt="Profile" class="profile-avatar">
+                    <div class="profile-info">
+                        <h2>John Doe</h2>
+                        <p>Administrator</p>
+                        <p class="last-login"><i class="fas fa-clock"></i> Last login: Today at 10:30 AM</p>
+                    </div>
+                </div>
+                <button class="edit-profile-btn">
+                    <i class="fas fa-pencil-alt"></i> Edit Profile
+                </button>
             </div>
-            
-            <div class="user-info">
-                <h2>John Doe</h2>
-                <p>ryan@rockettheme.com - <a href="#">Administrator</a></p>
+
+            <!-- Profile Sections -->
+            <div class="profile-sections">
+                <!-- Personal Info Section -->
+                <section class="profile-section">
+                    <div class="section-header">
+                        <i class="fas fa-user-circle section-icon"></i>
+                        <h3>Personal Information</h3>
+                    </div>
+                    <form class="profile-form">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>First Name</label>
+                                <input type="text" value="John" class="input-field">
+                            </div>
+                            <div class="form-group">
+                                <label>Last Name</label>
+                                <input type="text" value="Doe" class="input-field">
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" value="john.doe@example.com" class="input-field">
+                            </div>
+                            <div class="form-group">
+                                <label>Phone</label>
+                                <input type="tel" value="+1 (555) 123-4567" class="input-field">
+                            </div>
+                        </div>
+                        <button type="submit" class="save-btn">
+                            <i class="fas fa-save"></i> Save Changes
+                        </button>
+                    </form>
+                </section>
+
+                <!-- Account Settings -->
+                <section class="profile-section">
+                    <div class="section-header">
+                        <i class="fas fa-sliders-h section-icon"></i>
+                        <h3>Account Settings</h3>
+                    </div>
+                    <form class="settings-form">
+                        <div class="form-group">
+                            <label>Language Preference</label>
+                            <select class="select-field">
+                                <option>English</option>
+                                <option>Spanish</option>
+                                <option>French</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Timezone</label>
+                            <select class="select-field">
+                                <option>Eastern Time (ET)</option>
+                                <option>Central Time (CT)</option>
+                                <option>Pacific Time (PT)</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="save-btn">
+                            <i class="fas fa-sync-alt"></i> Update Settings
+                        </button>
+                    </form>
+                </section>
+
+                <!-- Quick Actions -->
+                <section class="quick-actions">
+                    <h3>Quick Actions</h3>
+                    <div class="action-cards">
+                        <div class="action-card" id="termsBtn">
+                            <i class="fas fa-file-alt"></i>
+                            <span>Terms & Policies</span>
+                        </div>
+                        <div class="action-card" id="shareBtn">
+                            <i class="fas fa-share-alt"></i>
+                            <span>Share App</span>
+                        </div>
+                        <div class="action-card" id="rateBtn">
+                            <i class="fas fa-star"></i>
+                            <span>Rate Us</span>
+                        </div>
+                        <div class="action-card" id="helpBtn">
+                            <i class="fas fa-question-circle"></i>
+                            <span>Help Center</span>
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
-        <!-- Account Section -->
-        <div class="account-header">Account</div>
-        
-        <ul class="profile-details">
-            <li>
-                <label>Username</label>
-                <input type="text" value="ryan" readonly>
-            </li>
-            
-            <li>
-                <label>Email</label>
-                <input type="email" value="ryan@example.com">
-            </li>
-            
-           <li class="password-field">
-                <label>Password</label>
-                <div class="password-wrapper">
-                    <input type="password" value="••••••••" id="passwordField">
-                    <button type="button" onclick="togglePassword()" class="toggle-btn">👁️</button>
-                </div>
-            </li>
-            
-            <li>
-                <label>Full name</label>
-                <input type="text" value="John Doe">
-            </li>
-            
-            <li>
-                <label>Title</label>
-                <input type="text" value="Administrator">
-            </li>
-            
-            <li>
-                <label>Language</label>
-                <select>
-                    <option selected>English</option>
-                    <option>Spanish</option>
-                    <option>French</option>
-                </select>
-            </li>
-        </ul>
-        
-        <div class="form-actions">
-            <button type="submit" class="btn-primary">Save Changes</button>
+    </main>
+
+    <!-- Rating Modal -->
+    <div class="modal" id="ratingModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>How would you rate our app?</h3>
+            <div class="rating-stars">
+                <i class="far fa-star" data-value="1"></i>
+                <i class="far fa-star" data-value="2"></i>
+                <i class="far fa-star" data-value="3"></i>
+                <i class="far fa-star" data-value="4"></i>
+                <i class="far fa-star" data-value="5"></i>
+            </div>
+            <button class="submit-rating">Submit Rating</button>
         </div>
     </div>
+
+    <script src="profile.js"></script>
 </body>
-<script>
-    // Image preview on file select
-    document.getElementById('avatarUpload').addEventListener('change', function(event) {
-        const file = event.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                document.getElementById('avatarPreview').src = e.target.result;
-            };
-            reader.readAsDataURL(file);
-        }
-    });
-    function togglePassword() {
-        const pwd = document.getElementById("passwordField");
-        pwd.type = pwd.type === "password" ? "text" : "password";
-    }
-</script>
 </html>
