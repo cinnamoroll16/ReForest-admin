@@ -176,6 +176,7 @@ header h1 {
     padding: 8px 12px;
     color: #333;
     font-size: 0.85rem;
+    text-decoration: none;
 }
 
 .profile-dropdown a:hover {

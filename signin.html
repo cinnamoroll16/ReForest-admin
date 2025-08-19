@@ -15,7 +15,7 @@
 
             <form>
                 <label for="email">EMAIL</label>
-                <input type="email" id="email" placeholder="mary@gmail.com">
+                <input type="email" id="email" placeholder="example@gmail.com">
 
                 <label for="password">PASSWORD</label>
                 <input type="password" id="password" placeholder="******">
@@ -24,7 +24,11 @@
                     <a href="forgotpassword.html">Forgot Password?</a>
                 </div>
 
-                <button onclick="window.location.href='home.html'">Login</button>
+                <button type="button" onclick="login()">Login</button>
+                
+                <p style="margin-top: 15px; text-align: center;">
+                    Don't have an account? <a href="signup.html">Sign up</a>
+                </p>
             </form>
         </div>
         <!-- Right Image Side -->
@@ -32,6 +36,42 @@
             <h1>REFOREST</h1>
         </div>
     </div>
+
+    <script>
+        // Auto-populate fields if user came from signup
+        window.onload = function() {
+            const signupData = sessionStorage.getItem('signupData');
+            if (signupData) {
+                const userData = JSON.parse(signupData);
+                document.getElementById('email').value = userData.email;
+                document.getElementById('password').value = userData.password;
+            }
+        };
+
+        function login() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            if (!email || !password) {
+                alert('Please enter both email and password!');
+                return;
+            }
+
+            // Check if credentials match signup data
+            const signupData = sessionStorage.getItem('signupData');
+            if (signupData) {
+                const userData = JSON.parse(signupData);
+                if (email === userData.email && password === userData.password) {
+                    // Clear signup data after successful login
+                    sessionStorage.removeItem('signupData');
+                    window.location.href = 'home.html';
+                    return;
+                }
+            }
+
+            // If no signup data or credentials don't match
+            alert('Invalid email or password!');
+        }
+    </script>
 </body>
 </html>
-
