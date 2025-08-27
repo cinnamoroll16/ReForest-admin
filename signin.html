@@ -13,30 +13,27 @@
             <h2>Login</h2>
             <p class="login-text">Sign in to continue</p>
 
-            <form>
+            <!-- Send form data to signin.php -->
+            <form action="signin_process.php" method="POST">
                 <label for="email">EMAIL</label>
-                <input type="email" id="email" placeholder="example@gmail.com">
+                <input type="email" name="email" id="email" placeholder="mary@gmail.com" required>
 
                 <label for="password">PASSWORD</label>
-                <input type="password" id="password" placeholder="******">
+                <input type="password" name="password" id="password" placeholder="******" required>
 
                 <div class="forgot-password">
                     <a href="forgotpassword.html">Forgot Password?</a>
                 </div>
 
-                <button type="button" onclick="login()">Login</button>
-                
-                <p style="margin-top: 15px; text-align: center;">
-                    Don't have an account? <a href="signup.html">Sign up</a>
-                </p>
+                <button type="submit">Login</button>
             </form>
         </div>
+
         <!-- Right Image Side -->
         <div class="right-side">
             <h1>REFOREST</h1>
         </div>
     </div>
-
     <script>
         // Auto-populate fields if user came from signup
         window.onload = function() {
