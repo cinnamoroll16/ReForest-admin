@@ -18,26 +18,28 @@ body {
 /* Left side with background image */
 .left-side {
     flex: 1;
-    background-image: url('plant.jpg'); /* Replace with your image filename */
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('plant.jpg');
     background-size: cover;
-    background-position: center 20%; /* Moves the image slightly downward */
+    background-position: center;
     display: flex;
     align-items: flex-start;
     justify-content: center;
     padding-top: 50px;
+    background-color: #2d5a2d;
 }
 
 .left-side h1 {
     font-family: Georgia, serif;
-    font-size: 5rem;
+    font-size: 4rem;
     color: white;
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+    font-weight: bold;
 }
 
 /* Right side form */
 .right-side {
     flex: 1;
-    background-color: #e8f1e5;
+    background-color: #f0f5f0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -46,18 +48,21 @@ body {
 }
 
 .right-side h2 {
-    font-size: 3rem;
+    font-size: 2.2rem;
     margin-bottom: 10px;
+    color: #333;
+    font-weight: normal;
 }
 
 .login-text {
-    margin-bottom: 20px;
-    font-size: 1rem;
+    margin-bottom: 30px;
+    font-size: 0.9rem;
+    color: #666;
 }
 
 .login-text a {
     font-weight: bold;
-    color: green;
+    color: #2d7d2d;
     text-decoration: none;
 }
 
@@ -66,34 +71,78 @@ form {
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 300px;
+    max-width: 320px;
+}
+
+.name-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.name-field {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 label {
-    font-size: 0.8rem;
-    margin-bottom: 8px;
+    font-size: 0.75rem;
+    margin-bottom: 5px;
+    color: #555;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 input, select {
-    padding: 8px;
+    padding: 10px 12px;
     margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
     font-size: 0.9rem;
+    background-color: white;
+}
+
+.name-field input {
+    margin-bottom: 15px;
+}
+
+select {
+    cursor: pointer;
+    color: #999;
 }
 
 button {
-    padding: 10px;
-    background-color: rgba(0, 128, 0, 0.833);
+    padding: 12px;
+    background-color: #2d7d2d;
     color: white;
     border: none;
-    border-radius: 3px;
+    border-radius: 4px;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: bold;
-    margin-top: 20px; /* Adjust this value to move the button further down */
+    margin-top: 10px;
+    text-transform: lowercase;
 }
 
 button:hover {
-    background-color: darkgreen;
+    background-color: #1e5a1e;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .left-side {
+        min-height: 200px;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .left-side h1 {
+        font-size: 3rem;
+    }
 }

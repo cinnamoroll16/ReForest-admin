@@ -19,20 +19,29 @@
             <p class="login-text">Already Registered? <a href="signin.html">Login</a></p>
 
             <form>
-                <label for="name">NAME</label>
-                <input type="text" id="name" placeholder="Mary Santos">
-
+            
+                <label for="firstname">FIRST NAME</label>
+                <input type="text" id="firstname" placeholder="Mary ">
+                  
+                <label for="lastname">LAST NAME</label>
+                <input type="text" id="lastname" placeholder="Santos">
+    
                 <label for="email">EMAIL</label>
-                <input type="email" id="email" placeholder="mary@gmail.com">
+                <input type="email" id="email" placeholder="example@gmail.com">
 
                 <label for="password">PASSWORD</label>
-                <input type="password" id="password" placeholder="******">
+                <input type="password" id="password" placeholder="****">
+
+                <label for="confirmpassword">CONFIRM PASSWORD</label>
+                <input type="password" id="confirmpassword" placeholder="****">
 
                 <label for="role">ROLE</label>
                 <select id="role">
                     <option value="">Select</option>
                     <option value="user">User</option>
                     <option value="admin">Admin</option>
+                    <option value="volunteer">Volunteer</option>
+                    <option value="organization">Organization</option>
                 </select>
 
                 <button type="button">Sign up</button>
