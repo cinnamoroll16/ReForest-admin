@@ -57,26 +57,6 @@ const assignedToInput = document.getElementById('assignedTo');
 const taskLocationInput = document.getElementById('taskLocation');
 const taskStatusInput = document.getElementById('taskStatus');
 const taskDateInput = document.getElementById('taskDate');
-// Add this to your existing event listeners
-    const logoutBtn = document.getElementById('logoutBtn');
-    if (logoutBtn) {
-        logoutBtn.addEventListener('click', handleLogout);
-    }
-
-    // Add this function to your existing functions
-    function handleLogout(e) {
-        e.preventDefault();
-        // Here you would typically:
-        // 1. Clear session/token
-        // 2. Redirect to login page
-        console.log('Logging out...');
-        alert('You have been logged out successfully!');
-        window.location.href = 'signin.html'; // Uncomment to redirect
-    }
-    // Add click events to all action cards
-    actionCards.forEach(card => {
-        card.addEventListener('click', handleActionCardClick);
-    });
 
 // Set default dates
 const today = new Date().toISOString().split('T')[0];
@@ -284,6 +264,25 @@ window.addEventListener('click', (e) => {
         taskModal.style.display = "none";
     }
 });
+// Add this to your existing event listeners
+const logoutBtn = document.getElementById('logoutBtn');
+if (logoutBtn) {
+    logoutBtn.addEventListener('click', handleLogout);
+}
 
+// Add this function to your existing functions
+function handleLogout(e) {
+    e.preventDefault();
+    // Here you would typically:
+    // 1. Clear session/token
+    // 2. Redirect to login page
+    console.log('Logging out...');
+    alert('You have been logged out successfully!');
+    window.location.href = 'signin.html'; // Uncomment to redirect
+}
+// Add click events to all action cards
+actionCards.forEach(card => {
+    card.addEventListener('click', handleActionCardClick);
+});
 // Initialize
 filterTasks();

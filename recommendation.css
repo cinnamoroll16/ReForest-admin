@@ -105,6 +105,7 @@ body {
 }
 
 .profile-dropdown a {
+    text-decoration: none;
     display: flex;
     align-items: center;
     padding: 8px 12px;

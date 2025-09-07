@@ -13,12 +13,17 @@
             <h2>Login</h2>
             <p class="login-text">Sign in to continue</p>
 
+<<<<<<< HEAD
             <form action="signin.php" method="POST">
+=======
+            <!-- Send form data to signin.php -->
+            <form action="signin_process.php" method="POST">
+>>>>>>> e3d9cf787154c76c212ca5a4c3640bcfec4fe38d
                 <label for="email">EMAIL</label>
-                <input type="email" id="email" placeholder="mary@gmail.com">
+                <input type="email" name="email" id="email" placeholder="mary@gmail.com" required>
 
                 <label for="password">PASSWORD</label>
-                <input type="password" id="password" placeholder="******">
+                <input type="password" name="password" id="password" placeholder="******" required>
 
                 <div class="forgot-password">
                     <a href="forgotpassword.html">Forgot Password?</a>
@@ -27,11 +32,47 @@
                 <button type="submit">Login</button>
             </form>
         </div>
+
         <!-- Right Image Side -->
         <div class="right-side">
             <h1>REFOREST</h1>
         </div>
     </div>
+    <script>
+        // Auto-populate fields if user came from signup
+        window.onload = function() {
+            const signupData = sessionStorage.getItem('signupData');
+            if (signupData) {
+                const userData = JSON.parse(signupData);
+                document.getElementById('email').value = userData.email;
+                document.getElementById('password').value = userData.password;
+            }
+        };
+
+        function login() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            if (!email || !password) {
+                alert('Please enter both email and password!');
+                return;
+            }
+
+            // Check if credentials match signup data
+            const signupData = sessionStorage.getItem('signupData');
+            if (signupData) {
+                const userData = JSON.parse(signupData);
+                if (email === userData.email && password === userData.password) {
+                    // Clear signup data after successful login
+                    sessionStorage.removeItem('signupData');
+                    window.location.href = 'home.html';
+                    return;
+                }
+            }
+
+            // If no signup data or credentials don't match
+            alert('Invalid email or password!');
+        }
+    </script>
 </body>
 </html>
-
