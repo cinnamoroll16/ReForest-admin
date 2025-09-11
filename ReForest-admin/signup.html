@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReForest - Sign Up</title>
+  <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Left Image Side -->
+    <div class="left-side">
+      <h1>REFOREST</h1>
+    </div>
+
+    <!-- Right Form Side -->
+    <div class="right-side">
+      <h2>Create new Account</h2>
+      <p class="login-text">Already Registered? <a href="signin.html">Login</a></p>
+
+      <form id="signupForm">
+        <label for="firstname">FIRST NAME</label>
+        <input type="text" id="firstname" placeholder="Enter first name" required>
+          
+        <label for="lastname">LAST NAME</label>
+        <input type="text" id="lastname" placeholder="Enter last name" required>
+
+        <label for="email">EMAIL</label>
+        <input type="email" id="email" placeholder="example@gmail.com" required>
+
+        <label for="password">PASSWORD</label>
+        <input type="password" id="password" placeholder="****" required>
+
+        <label for="confirmpassword">CONFIRM PASSWORD</label>
+        <input type="password" id="confirmpassword" placeholder="****" required>
+
+        <label for="role">ROLE</label>
+        <select id="role" required>
+          <option value="">Select</option>
+          <option value="user">Planter</option>
+          <option value="admin">Admin</option>
+          <option value="volunteer">Volunteer</option>
+          <option value="organization">Organization</option>
+        </select>
+
+        <button type="submit">Sign up</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('signupForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent page reload
+
+      const firstname = document.getElementById('firstname').value.trim();
+      const lastname = document.getElementById('lastname').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const confirmpassword = document.getElementById('confirmpassword').value.trim();
+      const role = document.getElementById('role').value;
+
+      if (!firstname || !lastname || !email || !password || !confirmpassword || !role) {
+        alert('Please fill out all fields!');
+        return;
+      }
+
+      if (password !== confirmpassword) {
+        alert('Passwords do not match!');
+        return;
+      }
+
+      // Save user data to sessionStorage
+      const signupData = { 
+        name: firstname + " " + lastname, 
+        email, 
+        password, 
+        role 
+      };
+      sessionStorage.setItem('signupData', JSON.stringify(signupData));
+
+      window.location.href = 'signin.html';
+    });
+  </script>
+</body>
+</html>

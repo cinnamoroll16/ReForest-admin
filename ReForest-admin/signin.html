@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReForest - Sign In</title>
+  <link rel="stylesheet" href="signin.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Left Form Side -->
+    <div class="left-side">
+      <h2>Login</h2>
+      <p class="login-text">Sign in to continue</p>
+
+      <!-- ✅ Call login() properly on submit -->
+      <form onsubmit="event.preventDefault(); login();">
+        <label for="email">EMAIL</label>
+        <input type="email" id="email" placeholder="example@gmail.com">
+
+        <label for="password">PASSWORD</label>
+        <input type="password" id="password" placeholder="******">
+
+        <div class="forgot-password">
+          <a href="forgotpassword.html">Forgot Password?</a>
+        </div>
+
+        <!-- ✅ Removed inline redirect, let login() handle it -->
+        <button type="submit">Login</button>
+        <p class="register-text">Don't have an Account? <a href="signup.html">Register</a></p>
+      </form>
+    </div>
+
+    <!-- Right Image Side -->
+    <div class="right-side">
+      <h1>REFOREST</h1>
+    </div>
+  </div>
+
+  <script>
+    // Auto-populate fields if user came from signup
+    window.onload = function() {
+      const signupData = sessionStorage.getItem('signupData');
+      if (signupData) {
+        const userData = JSON.parse(signupData);
+        document.getElementById('email').value = userData.email;
+        document.getElementById('password').value = userData.password;
+      }
+    };
+
+    function login() {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      if (!email || !password) {
+        alert('Please enter both email and password!');
+        return;
+      }
+
+      // Check if credentials match signup data
+      const signupData = sessionStorage.getItem('signupData');
+      if (signupData) {
+        const userData = JSON.parse(signupData);
+        if (email === userData.email && password === userData.password) {
+          sessionStorage.removeItem('signupData');
+          window.location.href = 'home.html'; // ✅ Redirect happens here
+          return;
+        }
+      }
+
+      // If no signup data or credentials don't match
+      alert('Invalid email or password!');
+    }
+  </script>
+</body>
+</html>
